@@ -166,19 +166,16 @@
             border-color: #f59e0b;
         }
 
-        /* بخش ویژگی‌ها */
-        section {
-            padding: 70px 8%;
+        /* بخش ویژگی‌ها */25px;
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 45px;
-        }
-
-        .section-title h2 {
-            font-size: 28px;
-            font-weight: 800;
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(8px);
+            transition: 800;
             margin-bottom: 10px;
         }
 
@@ -253,7 +250,7 @@
             display: none;
         }
 
-        /* ===== بخش اختصاصی پاپ‌آپ نمونه کارها (Modal) ===== */
+        /* پاپ‌آپ گالری نمونه کارها (Modal) */
         .portfolio-modal {
             display: none;
             position: fixed;
@@ -334,6 +331,12 @@
             height: 350px;
             object-fit: cover;
             display: block;
+            cursor: zoom-in;
+            transition: transform 0.25s ease;
+        }
+
+        .modal-card img:hover {
+            transform: scale(1.03);
         }
 
         .modal-card-info {
@@ -351,30 +354,6 @@
             color: var(--text-muted);
         }
 
-        /* دکمه شناور پایین صفحه */
-        .floating-eitaa {
-            position: fixed;
-            bottom: 25px;
-            left: 25px;
-            background: var(--eitaa-gradient);
-            color: white;
-            padding: 12px 22px;
-            border-radius: 50px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 14px;
-            box-shadow: 0 10px 25px rgba(255, 102, 0, 0.4);
-            z-index: 90;
-            transition: 0.3s;
-        }
-
-        .floating-eitaa:hover {
-            transform: scale(1.05);
-        }
-
         footer {
             padding: 30px;
             text-align: center;
@@ -387,72 +366,33 @@
             .hero h1 { font-size: 30px; }
             .modal-header h2 { font-size: 20px; }
         }
-                /* استایل لایت‌باکس و پنجره تاریک تمام‌صفحه */
-        .modal-card img {
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-        .modal-card img:hover {
-            transform: scale(1.02);
-        }
 
-        .lightbox-overlay {
+        /* استایل لایت‌باکس (Lightbox) تمام‌صفحه */
+        .lightbox {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
+            inset: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(6px);
-            z-index: 999999;
+            background: rgba(0, 0, 0, 0.93);
+            backdrop-filter: blur(8px);
+            z-index: 100000;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
+            padding: 20px;
+            cursor: zoom-out;
         }
 
-        .lightbox-content {
-            position: relative;
-            max-width: 90vw;
+        .lightbox img {
+            max-width: 95vw;
             max-height: 90vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .lightbox-content img {
-            max-width: 90vw;
-            max-height: 85vh;
             width: auto;
             height: auto;
             object-fit: contain;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
+            cursor: default;
         }
-
-        .lightbox-close-btn {
-            position: absolute;
-            top: -45px;
-            left: 0;
-            background: rgba(255, 255, 255, 0.2);
-            color: #ffffff;
-            border: none;
-            font-size: 28px;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.2s, transform 0.2s;
-        }
-
-        .lightbox-close-btn:hover {
-            background: #ff4757;
-            transform: scale(1.1);
-        }
-
     </style>
 </head>
 <body>
@@ -465,10 +405,9 @@
             <i class="fa-solid fa-paintbrush"></i>
             ایران پوستر
         </div>
-               <a href="tel:09011516162" class="btn-eitaa" style="padding: 9px 20px; font-size: 14px;">
+        <a href="tel:09011516162" class="btn-eitaa" style="padding: 9px 20px; font-size: 14px;">
             📞 تماس با ما
         </a>
-
     </header>
 
     <!-- صفحه اصلی (Hero) -->
@@ -567,89 +506,89 @@
         </div>
 
         <!-- گرید تصاویر نمونه کارها -->
-       <div class="modal-grid">
-    <div class="modal-card">
-        <img src="https://i.postimg.cc/NM2FBN74/pwstr7.jpg" alt="تعمیرات لوازم دیجیتال" onclick="showLightbox(this.src)">
-        <div class="modal-card-info">
-            <h4>تعمیرات لوازم دیجیتال</h4>
-            <span></span>
-        </div>
-    </div>
+        <div class="modal-grid">
+            <div class="modal-card">
+                <img src="https://i.postimg.cc/NM2FBN74/pwstr7.jpg" alt="تعمیرات لوازم دیجیتال" onclick="showLightbox(this.src)">
+                <div class="modal-card-info">
+                    <h4>تعمیرات لوازم دیجیتال</h4>
+                    <span></span>
+                </div>
+            </div>
 
-    <div class="modal-card">
-        <img src="https://i.postimg.cc/htn2m6Xt/ayran-pwstr.jpg" alt="ایران پوستر" onclick="showLightbox(this.src)">
-        <div class="modal-card-info">
-            <h4>ایران پوستر</h4>
-            <span></span>
-        </div>
-    </div>
+            <div class="modal-card">
+                <img src="https://i.postimg.cc/htn2m6Xt/ayran-pwstr.jpg" alt="ایران پوستر" onclick="showLightbox(this.src)">
+                <div class="modal-card-info">
+                    <h4>ایران پوستر</h4>
+                    <span></span>
+                </div>
+            </div>
 
-    <div class="modal-card">
-        <img src="https://i.postimg.cc/RFJ7yL3h/pwstr5.jpg" alt="تولیدی شیر و بستنی" onclick="showLightbox(this.src)">
-        <div class="modal-card-info">
-            <h4>تولیدی شیر و بستنی</h4>
-            <span></span>
-        </div>
-    </div>
+            <div class="modal-card">
+                <img src="https://i.postimg.cc/RFJ7yL3h/pwstr5.jpg" alt="تولیدی شیر و بستنی" onclick="showLightbox(this.src)">
+                <div class="modal-card-info">
+                    <h4>تولیدی شیر و بستنی</h4>
+                    <span></span>
+                </div>
+            </div>
 
-    <div class="modal-card">
-        <img src="https://i.postimg.cc/5yMCGddY/pwstr1.jpg" alt="تجمعات شبانه" onclick="showLightbox(this.src)">
-        <div class="modal-card-info">
-            <h4>تجمعات شبانه</h4>
-            <span></span>
-        </div>
-    </div>
+            <div class="modal-card">
+                <img src="https://i.postimg.cc/5yMCGddY/pwstr1.jpg" alt="تجمعات شبانه" onclick="showLightbox(this.src)">
+                <div class="modal-card-info">
+                    <h4>تجمعات شبانه</h4>
+                    <span></span>
+                </div>
+            </div>
 
-    <div class="modal-card">
-        <img src="https://i.postimg.cc/8kBJ5Ygn/pwstr2.jpg" alt="پاسخ به شبهات دینی" onclick="showLightbox(this.src)">
-        <div class="modal-card-info">
-            <h4>پاسخ به شبهات دینی</h4>
-            <span></span>
-        </div>
-    </div>
+            <div class="modal-card">
+                <img src="https://i.postimg.cc/8kBJ5Ygn/pwstr2.jpg" alt="پاسخ به شبهات دینی" onclick="showLightbox(this.src)">
+                <div class="modal-card-info">
+                    <h4>پاسخ به شبهات دینی</h4>
+                    <span></span>
+                </div>
+            </div>
 
-    <div class="modal-card">
-        <img src="https://i.postimg.cc/qBLq0C84/pwstr3.jpg" alt="میز گفت و گو" onclick="showLightbox(this.src)">
-        <div class="modal-card-info">
-            <h4>میز گفت و گو</h4>
-            <span></span>
-        </div>
-    </div>
+            <div class="modal-card">
+                <img src="https://i.postimg.cc/qBLq0C84/pwstr3.jpg" alt="میز گفت و گو" onclick="showLightbox(this.src)">
+                <div class="modal-card-info">
+                    <h4>میز گفت و گو</h4>
+                    <span></span>
+                </div>
+            </div>
 
-    <div class="modal-card">
-        <img src="https://i.postimg.cc/65P95VTK/pwstr4.jpg" alt="کلاس های تابستانه" onclick="showLightbox(this.src)">
-        <div class="modal-card-info">
-            <h4>کلاس های تابستانه</h4>
-            <span></span>
-        </div>
-    </div>
+            <div class="modal-card">
+                <img src="https://i.postimg.cc/65P95VTK/pwstr4.jpg" alt="کلاس های تابستانه" onclick="showLightbox(this.src)">
+                <div class="modal-card-info">
+                    <h4>کلاس های تابستانه</h4>
+                    <span></span>
+                </div>
+            </div>
 
-    <div class="modal-card">
-        <img src="https://i.postimg.cc/bJm7V8tP/pwstr8.jpg" alt="مشاور املاک" onclick="showLightbox(this.src)">
-        <div class="modal-card-info">
-            <h4>مشاور املاک</h4>
-            <span></span>
-        </div>
-    </div>
+            <div class="modal-card">
+                <img src="https://i.postimg.cc/bJm7V8tP/pwstr8.jpg" alt="مشاور املاک" onclick="showLightbox(this.src)">
+                <div class="modal-card-info">
+                    <h4>مشاور املاک</h4>
+                    <span></span>
+                </div>
+            </div>
 
-    <div class="modal-card">
-        <img src="https://i.postimg.cc/q70Wkgc4/pwstr-9.jpg" alt="مشاوره آنلاین" onclick="showLightbox(this.src)">
-        <div class="modal-card-info">
-            <h4>مشاوره آنلاین</h4>
-            <span></span>
-        </div>
-    </div>
+            <div class="modal-card">
+                <img src="https://i.postimg.cc/q70Wkgc4/pwstr-9.jpg" alt="مشاوره آنلاین" onclick="showLightbox(this.src)">
+                <div class="modal-card-info">
+                    <h4>مشاوره آنلاین</h4>
+                    <span></span>
+                </div>
+            </div>
 
-    <div class="modal-card">
-        <img src="https://i.postimg.cc/85cK5v7Q/pwstr10.jpg" alt="منوی رستوران" onclick="showLightbox(this.src)">
-        <div class="modal-card-info">
-            <h4>منوی رستوران</h4>
-            <span></span>
+            <div class="modal-card">
+                <img src="https://i.postimg.cc/85cK5v7Q/pwstr10.jpg" alt="منوی رستوران" onclick="showLightbox(this.src)">
+                <div class="modal-card-info">
+                    <h4>منوی رستوران</h4>
+                    <span></span>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
+
         <div style="text-align: center; margin-top: 30px; padding-bottom: 30px;">
-
             <p style="color: var(--text-muted); margin-bottom: 15px;">از طرح‌ها خوشتان آمد؟ برای سفارش مستقیم در ایتا پیام دهید:</p>
             <a href="https://eitaa.com/Yari110" target="_blank" class="btn-eitaa">
                 <i class="fa-solid fa-paper-plane"></i>
@@ -657,6 +596,8 @@
             </a>
         </div>
     </div>
+
+    <!-- پاپ‌آپ نمایش تمام‌صفحه تصویر -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
         <img id="lightbox-img" src="" alt="نمایش کامل نمونه‌کار" onclick="event.stopPropagation()">
     </div>
@@ -666,16 +607,16 @@
         <p>تمامی حقوق برای <strong>ایران پوستر</strong> محفوظ است. | ارتباط در ایتا: <strong>Yari110@</strong></p>
     </footer>
 
-    <!-- کدهای کنترلی دکمه‌ها و باز و بسته شدن -->
+    <!-- اسکریپت‌های سایت -->
     <script>
         function openPortfolio() {
             document.getElementById("portfolioModal").style.display = "block";
-            document.body.style.overflow = "hidden"; // جلوگیری از اسکرول صفحه زیرین
+            document.body.style.overflow = "hidden";
         }
 
         function closePortfolio() {
             document.getElementById("portfolioModal").style.display = "none";
-            document.body.style.overflow = "auto"; // فعال شدن مجدد اسکرول
+            document.body.style.overflow = "auto";
         }
 
         function toggleFaq(card) {
@@ -689,17 +630,7 @@
                 icon.style.transform = "rotate(180deg)";
             }
         }
-                function showLightbox(imageSrc) {
-            document.getElementById("lightbox-img").src = imageSrc;
-            document.getElementById("lightbox").style.display = "flex";
-        }
 
-        function closeLightbox(event) {
-            if (event.target.id === "lightbox") {
-                document.getElementById("lightbox").style.display = "none";
-                document.getElementById("lightbox-img").src = "";
-            }
-        }
         function showLightbox(imageSrc) {
             document.getElementById("lightbox-img").src = imageSrc;
             document.getElementById("lightbox").style.display = "flex";
@@ -718,7 +649,6 @@
                 document.getElementById("lightbox-img").src = "";
             }
         });
-
     </script>
 </body>
 </html>
