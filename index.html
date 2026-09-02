@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ایران پوستر | طراحی تخصصی پوستر</title>
+    <!-- فونت وزیرمتن و آیکون‌ها -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --card-bg: rgba(22, 27, 46, 0.75);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --primary-gradient: linear-gradient(135deg, #f59e0b, #ef4444);
+            --eitaa-gradient: linear-gradient(135deg, #ff7a18, #e55000);
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .bg-glow {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(circle at 50% 20%, rgba(245, 158, 11, 0.12), transparent 65%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* هدر */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            border-bottom: 1px solid var(--card-border);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(11, 15, 25, 0.85);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 900;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo i {
+            color: #f59e0b;
+        }
+
+        /* بنر و صفحه اصلی */
+        .hero {
+            padding: 90px 8% 60px;
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 50px;
+            color: #f59e0b;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 900;
+            line-height: 1.4;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 17px;
+            margin-bottom: 35px;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* دکمه‌ها */
+        .btn-eitaa {
+            background: var(--eitaa-gradient);
+            color: white;
+            padding: 14px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 8px 25px rgba(255, 102, 0, 0.35);
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-eitaa:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 102, 0, 0.5);
+        }
+
+        .btn-portfolio-open {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--card-border);
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-portfolio-open:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+            border-color: #f59e0b;
+        }
+
+        /* بخش ویژگی‌ها */
+        section {
+            padding: 70px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(8px);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(245, 158, 11, 0.3);
+        }
+
+        .feature-icon {
+            width: 55px;
+            height: 55px;
+            background: rgba(245, 158, 11, 0.1);
+            color: #f59e0b;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            font-size: 24px;
+            margin: 0 auto 20px;
+        }
+
+        /* سوالات متداول */
+        .faq-box {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
+            margin-bottom: 12px;
+            padding: 18px 22px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .faq-question {
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+            font-size: 14px;
+            margin-top: 12px;
+            line-height: 1.8;
+            display: none;
+        }
+
+        /* ===== بخش اختصاصی پاپ‌آپ نمونه کارها (Modal) ===== */
+        .portfolio-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 15, 25, 0.96);
+            backdrop-filter: blur(15px);
+            z-index: 9999;
+            overflow-y: auto;
+            padding: 40px 8%;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.98); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--card-border);
+            padding-bottom: 20px;
+            margin-bottom: 35px;
+        }
+
+        .modal-header h2 {
+            font-size: 26px;
+            font-weight: 800;
+            color: #fff;
+        }
+
+        .btn-close-modal {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--card-border);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 50px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+
+        .btn-close-modal:hover {
+            background: #ef4444;
+            border-color: #ef4444;
+        }
+
+        .modal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .modal-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 18px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .modal-card:hover {
+            transform: translateY(-6px);
+            border-color: #f59e0b;
+        }
+
+        .modal-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .modal-card-info {
+            padding: 15px 20px;
+            text-align: right;
+        }
+
+        .modal-card-info h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .modal-card-info span {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* دکمه شناور پایین صفحه */
+        .floating-eitaa {
+            position: fixed;
+            bottom: 25px;
+            left: 25px;
+            background: var(--eitaa-gradient);
+            color: white;
+            padding: 12px 22px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 10px 25px rgba(255, 102, 0, 0.4);
+            z-index: 90;
+            transition: 0.3s;
+        }
+
+        .floating-eitaa:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            padding: 30px;
+            text-align: center;
+            border-top: 1px solid var(--card-border);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 30px; }
+            .modal-header h2 { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-glow"></div>
+
+    <!-- هدر سایت -->
+    <header>
+        <div class="logo">
+            <i class="fa-solid fa-paintbrush"></i>
+            ایران پوستر
+        </div>
+        <a href="https://eitaa.com/Yari110" target="_blank" class="btn-eitaa" style="padding: 9px 20px; font-size: 14px;">
+            <i class="fa-solid fa-paper-plane"></i>
+            پیام در ایتا (@Yari110)
+        </a>
+    </header>
+
+    <!-- صفحه اصلی (Hero) -->
+    <section class="hero">
+        <div class="badge">✨ خدمات طراحی گرافیک و پوستر</div>
+        <h1>ایران پوستر؛ <span>خلق طرح‌های ماندگار و جذاب</span></h1>
+        <p>طراحی حرفه‌ای پوستر متناسب با سلیقه شما، آماده برای چاپ با کیفیت عالی و انتشار در شبکه‌های اجتماعی.</p>
+        
+        <div class="hero-btns">
+            <!-- دکمه باز کردن نمونه کارها -->
+            <button class="btn-portfolio-open" onclick="openPortfolio()">
+                <i class="fa-regular fa-images"></i>
+                مشاهده نمونه کارها
+            </button>
+
+            <!-- دکمه سفارش مستقیم -->
+            <a href="https://eitaa.com/Yari110" target="_blank" class="btn-eitaa">
+                <i class="fa-solid fa-paper-plane"></i>
+                ثبت سفارش در ایتا
+            </a>
+        </div>
+    </section>
+
+    <!-- مزایای ایران پوستر -->
+    <section>
+        <div class="section-title">
+            <h2>چرا ایران پوستر؟</h2>
+            <p>تضمین کیفیت و پشتیبانی تا رضایت کامل شما</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-bolt"></i></div>
+                <h3>تحویل سریع</h3>
+                <p>طراحی در کمترین زمان ممکن همراه با حفظ نهایت کیفیت و جزئیات.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <h3>طرح کاملاً اختصاصی</h3>
+                <p>طراحی متناسب با هویت، رنگ و سلیقه دقیق شما بدون قالب‌های تکراری.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fa-solid fa-print"></i></div>
+                <h3>کیفیت فوق‌العاده چاپ</h3>
+                <p>ارائه فایل در ابعاد استاندارد و رزولوشن بالا (300DPI) آماده برای چاپخانه.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- سوالات متداول -->
+    <section>
+        <div class="section-title">
+            <h2>سوالات متداول</h2>
+            <p>پاسخ به برخی سوالات شما قبل از شروع همکاری</p>
+        </div>
+        <div class="faq-box">
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>چطور می‌توانم سفارشم را ثبت کنم؟</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">کافیست روی دکمه «ثبت سفارش در ایتا» کلیک کنید و در چت ایتا جزئیات طرح و متن مورد نظرتان را برای من بفرستید.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>زمان تحویل پوستر چقدر است؟</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">بسته به حجم پروژه، معمولاً بین ۲۴ تا ۴۸ ساعت کاری پوستر آماده و ارسال می‌شود.</div>
+            </div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-question">
+                    <span>اگر نیاز به ویرایش یا تغییر داشته باشد انجام می‌دهید؟</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">بله، اتود اولیه برای شما فرستاده می‌شود و تغییرات مد نظرتان به طور کامل اعمال خواهد شد تا رضایت کامل داشته باشید.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- دکمه شناور ایتا -->
+    <a href="https://eitaa.com/Yari110" target="_blank" class="floating-eitaa">
+        <i class="fa-solid fa-paper-plane"></i>
+        <span>سفارش در ایتا (@Yari110)</span>
+    </a>
+
+    <!-- ============================================== -->
+    <!-- صفحه پاپ‌آپ نمونه کارها (با زدن دکمه باز می‌شود) -->
+    <!-- ============================================== -->
+    <div id="portfolioModal" class="portfolio-modal">
+        <div class="modal-header">
+            <div>
+                <h2>✨ گالری نمونه کارهای ایران پوستر</h2>
+                <p style="color: var(--text-muted); font-size: 14px; margin-top: 4px;">نمونه پوسترهای طراحی شده برای رویدادها، تبلیغات و همایش‌ها</p>
+            </div>
+            <!-- دکمه بازگشت به صفحه اصلی -->
+            <button class="btn-close-modal" onclick="closePortfolio()">
+                <i class="fa-solid fa-arrow-right"></i>
+                بازگشت به صفحه اصلی
+            </button>
+        </div>
+
+        <!-- گرید تصاویر نمونه کارها -->
+        <div class="modal-grid">
+            <div class="modal-card">
+                <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?w=600" alt="پوستر هنری">
+                <div class="modal-card-info">
+                    <h4>پوستر همایش بین‌المللی</h4>
+                    <span>طراحی مدرن و مینیمال</span>
+                </div>
+            </div>
+
+            <div class="modal-card">
+                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600" alt="پوستر تبلیغاتی">
+                <div class="modal-card-info">
+                    <h4>پوستر تبلیغاتی محصول</h4>
+                    <span>ویژه کمپین‌های فروش</span>
+                </div>
+            </div>
+
+            <div class="modal-card">
+                <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600" alt="پوستر استوری">
+                <div class="modal-card-info">
+                    <h4>پوستر رویداد شبکه‌های اجتماعی</h4>
+                    <span>مناسب استوری و بنر دیجیتال</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px; padding-bottom: 30px;">
+            <p style="color: var(--text-muted); margin-bottom: 15px;">از طرح‌ها خوشتان آمد؟ برای سفارش مستقیم در ایتا پیام دهید:</p>
+            <a href="https://eitaa.com/Yari110" target="_blank" class="btn-eitaa">
+                <i class="fa-solid fa-paper-plane"></i>
+                ثبت سفارش پوستر در ایتا (@Yari110)
+            </a>
+        </div>
+    </div>
+
+    <!-- فوتر -->
+    <footer>
+        <p>تمامی حقوق برای <strong>ایران پوستر</strong> محفوظ است. | ارتباط در ایتا: <strong>Yari110@</strong></p>
+    </footer>
+
+    <!-- کدهای کنترلی دکمه‌ها و باز و بسته شدن -->
+    <script>
+        function openPortfolio() {
+            document.getElementById("portfolioModal").style.display = "block";
+            document.body.style.overflow = "hidden"; // جلوگیری از اسکرول صفحه زیرین
+        }
+
+        function closePortfolio() {
+            document.getElementById("portfolioModal").style.display = "none";
+            document.body.style.overflow = "auto"; // فعال شدن مجدد اسکرول
+        }
+
+        function toggleFaq(card) {
+            const answer = card.querySelector('.faq-answer');
+            const icon = card.querySelector('.faq-question i');
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+                icon.style.transform = "rotate(0deg)";
+            } else {
+                answer.style.display = "block";
+                icon.style.transform = "rotate(180deg)";
+            }
+        }
+    </script>
+</body>
+</html>
