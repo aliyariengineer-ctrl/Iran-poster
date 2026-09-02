@@ -387,6 +387,72 @@
             .hero h1 { font-size: 30px; }
             .modal-header h2 { font-size: 20px; }
         }
+                /* استایل لایت‌باکس و پنجره تاریک تمام‌صفحه */
+        .modal-card img {
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .modal-card img:hover {
+            transform: scale(1.02);
+        }
+
+        .lightbox-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(6px);
+            z-index: 999999;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content img {
+            max-width: 90vw;
+            max-height: 85vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-close-btn {
+            position: absolute;
+            top: -45px;
+            left: 0;
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            border: none;
+            font-size: 28px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s, transform 0.2s;
+        }
+
+        .lightbox-close-btn:hover {
+            background: #ff4757;
+            transform: scale(1.1);
+        }
+
     </style>
 </head>
 <body>
@@ -624,6 +690,17 @@
             }
         }
                 function showLightbox(imageSrc) {
+            document.getElementById("lightbox-img").src = imageSrc;
+            document.getElementById("lightbox").style.display = "flex";
+        }
+
+        function closeLightbox(event) {
+            if (event.target.id === "lightbox") {
+                document.getElementById("lightbox").style.display = "none";
+                document.getElementById("lightbox-img").src = "";
+            }
+        }
+        function showLightbox(imageSrc) {
             document.getElementById("lightbox-img").src = imageSrc;
             document.getElementById("lightbox").style.display = "flex";
         }
