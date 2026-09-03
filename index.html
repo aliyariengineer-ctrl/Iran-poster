@@ -533,6 +533,32 @@
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
             cursor: default;
         }
+        /* لایه تیره‌کننده برای خوانایی متن روی بنر */
+.hero-wrapper {
+    position: relative;
+}
+
+.hero-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+        rgba(15, 23, 42, 0.55) 0%,
+        rgba(15, 23, 42, 0.45) 45%,
+        rgba(15, 23, 42, 0.75) 100%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-wrapper .hero,
+.hero-wrapper .badge,
+.hero-wrapper h1,
+.hero-wrapper p,
+.hero-wrapper .hero-btns {
+    position: relative;
+    z-index: 2;
+}
+
     </style>
 </head>
 <body>
