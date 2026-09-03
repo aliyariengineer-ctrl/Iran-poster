@@ -532,10 +532,29 @@
             border-radius: 12px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
             cursor: default;
-          /* ۱) برگرداندن رنگ نارنجی-طلایی به بخش دوم تیتر */
+        /* لایه ملایم فقط برای پوستر زیرین (دقیقاً با همان تیرگی درخواستی 0.4) */
+    .hero-wrapper {
+      position: relative;
+    }
+
+    .hero-wrapper::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.4);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .hero-wrapper .hero {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* ۱) برگرداندن رنگ گرادینت نارنجی-طلایی اولیه به جمله «خلق طرح‌های ماندگار و جذاب» */
     .hero-wrapper h1 span,
     .hero-wrapper h1 .highlight {
-      background: linear-gradient(90deg, #f59e0b, #fbbf24, #f97316) !important;
+      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #ea580c 100%) !important;
       -webkit-background-clip: text !important;
       background-clip: text !important;
       -webkit-text-fill-color: transparent !important;
@@ -543,47 +562,46 @@
       text-shadow: none !important;
     }
 
-    /* ۲) پررنگ و خوانا شدن بج بالایی */
+    /* ۲) خیلی پررنگ و برجسته شدن «خدمات طراحی گرافیک و پوستر» */
     .hero-wrapper .badge {
-      color: #fde047 !important;
+      color: #facc15 !important;
       font-weight: 800 !important;
-      background: rgba(15, 23, 42, 0.75) !important;
-      border: 1px solid rgba(250, 204, 21, 0.6) !important;
-      box-shadow: 0 0 12px rgba(250, 204, 21, 0.2) !important;
+      background: rgba(15, 23, 42, 0.85) !important;
+      border: 1.5px solid #facc15 !important;
+      box-shadow: 0 0 10px rgba(250, 204, 21, 0.3) !important;
       text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9) !important;
     }
 
-    /* ۳) پررنگ‌تر و شفاف شدن متن توضیحات */
+    /* ۳) سفیدتر و پررنگ‌تر شدن متن توضیحات پایینی */
     .hero-wrapper p {
-      color: #f8fafc !important;
+      color: #ffffff !important;
       font-weight: 600 !important;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95) !important;
+      text-shadow: 0 2px 12px rgba(0, 0, 0, 1) !important;
     }
 
-    /* ۴) استایل شیک و جذاب برای دکمه مشاهده نمونه کارها */
+    /* ۴) رنگ سبز شیک و جذاب برای دکمه «مشاهده نمونه کارها» */
     .hero-wrapper .hero-btns a:nth-child(2),
     .hero-wrapper .btn-secondary,
     .hero-wrapper .btn-outline {
-      background: rgba(99, 102, 241, 0.2) !important;
-      border: 1.5px solid rgba(165, 180, 252, 0.8) !important;
-      color: #ffffff !important;
+      background: rgba(16, 185, 129, 0.25) !important;
+      border: 1.5px solid #10b981 !important;
+      color: #ecfdf5 !important;
       backdrop-filter: blur(8px) !important;
       -webkit-backdrop-filter: blur(8px) !important;
-      box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3) !important;
+      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3) !important;
       font-weight: 700 !important;
+      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
       transition: all 0.3s ease !important;
     }
 
-    /* افکت هاور جذاب هنگام رفتن موس روی دکمه */
     .hero-wrapper .hero-btns a:nth-child(2):hover,
     .hero-wrapper .btn-secondary:hover,
     .hero-wrapper .btn-outline:hover {
-      background: rgba(99, 102, 241, 0.45) !important;
-      border-color: #ffffff !important;
-      box-shadow: 0 0 20px rgba(129, 140, 248, 0.6) !important;
+      background: rgba(16, 185, 129, 0.5) !important;
+      border-color: #34d399 !important;
+      box-shadow: 0 0 20px rgba(16, 185, 129, 0.6) !important;
       transform: translateY(-2px);
     }
-
 
     </style>
 </head>
