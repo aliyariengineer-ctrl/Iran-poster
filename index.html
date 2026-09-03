@@ -532,8 +532,7 @@
             border-radius: 12px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
             cursor: default;
-        }
-         /* لایه تیره‌کننده قوی و استایل خوانایی متن‌های هیرو */
+        }    /* لایه ملایم فقط برای پوستر زیرین، بدون تغییر هیچ‌کدام از رنگ‌های متن یا دکمه‌ها */
     .hero-wrapper {
       position: relative;
     }
@@ -542,48 +541,21 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom,
-          rgba(10, 15, 30, 0.82) 0%,
-          rgba(10, 15, 30, 0.85) 50%,
-          rgba(10, 15, 30, 0.95) 100%);
+      background: rgba(15, 23, 42, 0.4);
       z-index: 1;
       pointer-events: none;
     }
 
-    .hero-wrapper .hero,
-    .hero-wrapper .badge,
-    .hero-wrapper h1,
-    .hero-wrapper p,
-    .hero-wrapper .hero-btns {
+    .hero-wrapper .hero {
       position: relative;
       z-index: 2;
     }
 
-    /* واضح‌سازی متن‌ها با سایه قوی */
-    .hero-wrapper h1 {
-      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 2px 6px rgba(0, 0, 0, 0.8);
-    }
-
-    .hero-wrapper p {
-      color: #ffffff !important;
-      text-shadow: 0 2px 12px rgba(0, 0, 0, 0.95), 0 1px 4px rgba(0, 0, 0, 0.9);
-      font-weight: 500;
-      max-width: 750px;
-      margin: 0 auto;
-      background: rgba(15, 23, 42, 0.45);
-      padding: 8px 16px;
-      border-radius: 12px;
-      backdrop-filter: blur(4px);
-    }
-
-    /* تقویت دکمه شیشه‌ای مشاهده نمونه کارها */
-    .hero-wrapper .hero-btns a:not(.btn-primary) {
-      background: rgba(15, 23, 42, 0.8) !important;
-      border: 1px solid rgba(255, 255, 255, 0.3) !important;
-      color: #ffffff !important;
-      font-weight: 700 !important;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(8px);
+    /* فقط سایه مشکی به متن‌ها برای اینکه روی پوستر گم نشن، بدون عوض کردن رنگشون */
+    .hero-wrapper h1,
+    .hero-wrapper p,
+    .hero-wrapper .hero-btns a {
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
     }
 
     </style>
