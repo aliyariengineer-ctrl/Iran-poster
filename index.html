@@ -75,114 +75,6 @@
             color: #f59e0b;
         }
 
-        /* بنر و صفحه اصلی */
-        .hero {
-            padding: 90px 8% 60px;
-            text-align: center;
-            max-width: 850px;
-            margin: 0 auto;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 6px 16px;
-            background: rgba(245, 158, 11, 0.1);
-            border: 1px solid rgba(245, 158, 11, 0.3);
-            border-radius: 50px;
-            color: #f59e0b;
-            font-size: 13px;
-            font-weight: 600;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 {
-            font-size: 42px;
-            font-weight: 900;
-            line-height: 1.4;
-            margin-bottom: 20px;
-        }
-
-        .hero h1 span {
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ایران پوستر | طراحی تخصصی پوستر</title>
-    <!-- فونت وزیرمتن و آیکون‌ها -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        :root {
-            --bg-color: #0b0f19;
-            --card-bg: rgba(22, 27, 46, 0.75);
-            --card-border: rgba(255, 255, 255, 0.08);
-            --primary-gradient: linear-gradient(135deg, #f59e0b, #ef4444);
-            --eitaa-gradient: linear-gradient(135deg, #ff7a18, #e55000);
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Vazirmatn', sans-serif;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
-
-        .bg-glow {
-            position: fixed;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100vw;
-            height: 100vh;
-            background: radial-gradient(circle at 50% 20%, rgba(245, 158, 11, 0.12), transparent 65%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* هدر */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            border-bottom: 1px solid var(--card-border);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(11, 15, 25, 0.85);
-        }
-
-        .logo {
-            font-size: 22px;
-            font-weight: 900;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo i {
-            color: #f59e0b;
-        }
-
         /* بنر و صفحه اصلی با پس‌زمینه کلاژ */
         .hero-wrapper {
             position: relative;
@@ -192,6 +84,16 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
+        }
+
+        /* لایه ملایم پس‌زمینه با تیرگی دقیق 0.4 */
+        .hero-wrapper::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.4);
+            z-index: 1;
+            pointer-events: none;
         }
 
         .hero-bg-picture {
@@ -212,23 +114,26 @@
 
         .hero {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             padding: 100px 8% 70px;
             text-align: center;
             max-width: 850px;
             margin: 0 auto;
         }
 
+        /* ۴- پررنگ و درخشان شدن بج بالا */
         .badge {
             display: inline-block;
-            padding: 6px 16px;
-            background: rgba(245, 158, 11, 0.1);
-            border: 1px solid rgba(245, 158, 11, 0.3);
+            padding: 8px 20px;
+            background: rgba(15, 23, 42, 0.85);
+            border: 1.5px solid #facc15;
             border-radius: 50px;
-            color: #f59e0b;
-            font-size: 13px;
-            font-weight: 600;
+            color: #fde047;
+            font-size: 14px;
+            font-weight: 800;
             margin-bottom: 20px;
+            box-shadow: 0 0 15px rgba(250, 204, 21, 0.35);
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
         }
 
         .hero h1 {
@@ -236,18 +141,28 @@
             font-weight: 900;
             line-height: 1.4;
             margin-bottom: 20px;
+            color: #ffffff;
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9);
         }
 
+        /* ۲- برگرداندن گرادینت اولیه به «خلق طرح‌های ماندگار و جذاب» */
         .hero h1 span {
-            background: var(--primary-gradient);
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #ea580c 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
+            color: #f59e0b;
+            text-shadow: none;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8));
         }
 
+        /* ۳- پررنگ، شفاف و سفید شدن متن توضیحات */
         .hero p {
-            color: var(--text-muted);
+            color: #ffffff;
             font-size: 17px;
+            font-weight: 600;
             margin-bottom: 35px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 15px rgba(0, 0, 0, 0.8);
         }
 
         .hero-btns {
@@ -273,6 +188,7 @@
             transition: 0.3s;
             border: none;
             cursor: pointer;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
         }
 
         .btn-eitaa:hover {
@@ -280,27 +196,34 @@
             box-shadow: 0 12px 30px rgba(255, 102, 0, 0.5);
         }
 
+        /* ۱- رنگ سبز شیک و جذاب برای دکمه مشاهده نمونه کارها */
         .btn-portfolio-open {
-            background: rgba(255, 255, 255, 0.07);
-            border: 1px solid var(--card-border);
-            color: #fff;
+            background: rgba(16, 185, 129, 0.25);
+            border: 2px solid #10b981;
+            color: #ffffff;
             padding: 14px 28px;
             border-radius: 50px;
             text-decoration: none;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             display: inline-flex;
             align-items: center;
             gap: 10px;
             cursor: pointer;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35);
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
             transition: 0.3s;
         }
 
         .btn-portfolio-open:hover {
-            background: rgba(255, 255, 255, 0.15);
+            background: rgba(16, 185, 129, 0.55);
+            border-color: #34d399;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
             transform: translateY(-3px);
-            border-color: #f59e0b;
         }
+
         section {
             padding: 70px 8%;
         }
@@ -507,7 +430,7 @@
             .modal-header h2 { font-size: 20px; }
         }
 
-        /* استایل لایت‌باکس (Lightbox) تمام‌صفحه */
+        /* استایل لایت‌باکس تمام‌صفحه */
         .lightbox {
             display: none;
             position: fixed;
@@ -532,78 +455,7 @@
             border-radius: 12px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
             cursor: default;
-         /* لایه ملایم پس‌زمینه (با حفظ تیرگی ثابت قبلی) */
-    .hero-wrapper {
-      position: relative;
-    }
-
-    .hero-wrapper::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.4);
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .hero-wrapper .hero,
-    .hero-wrapper .hero-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    /* ۱) برگرداندن رنگ گرادینت نارنجی-طلایی اصلی به کل تیتر */
-    .hero-wrapper h1,
-    .hero-wrapper .hero-title {
-      background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #ea580c 100%) !important;
-      -webkit-background-clip: text !important;
-      background-clip: text !important;
-      -webkit-text-fill-color: transparent !important;
-      color: #f59e0b !important;
-      text-shadow: none !important;
-      filter: drop-shadow(0 3px 12px rgba(0, 0, 0, 0.9)) !important;
-    }
-
-    /* ۲) پررنگ، خوانا و طلایی شدن بج بالایی */
-    .hero-wrapper .hero-badge {
-      color: #fde047 !important;
-      font-weight: 800 !important;
-      background: rgba(15, 23, 42, 0.85) !important;
-      border: 1.5px solid #eab308 !important;
-      box-shadow: 0 0 12px rgba(234, 179, 8, 0.35) !important;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9) !important;
-    }
-
-    /* ۳) سفیدتر و کاملاً پررنگ شدن متن توضیحات */
-    .hero-wrapper .hero-subtitle,
-    .hero-wrapper p {
-      color: #ffffff !important;
-      font-weight: 700 !important;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.95), 0 0 20px rgba(0, 0, 0, 0.8) !important;
-    }
-
-    /* ۴) سبز جذاب و نئونی برای دکمه «مشاهده نمونه کارها» */
-    .hero-wrapper a.btn-secondary,
-    .hero-wrapper .hero-btns a:not(.btn-primary) {
-      background: rgba(16, 185, 129, 0.35) !important;
-      border: 2px solid #10b981 !important;
-      color: #ffffff !important;
-      backdrop-filter: blur(8px) !important;
-      -webkit-backdrop-filter: blur(8px) !important;
-      box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4) !important;
-      font-weight: 700 !important;
-      text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8) !important;
-      transition: all 0.3s ease !important;
-    }
-
-    .hero-wrapper a.btn-secondary:hover,
-    .hero-wrapper .hero-btns a:not(.btn-primary):hover {
-      background: rgba(16, 185, 129, 0.65) !important;
-      border-color: #34d399 !important;
-      box-shadow: 0 0 22px rgba(16, 185, 129, 0.7) !important;
-      transform: translateY(-2px);
-    }
-
+        }
     </style>
 </head>
 <body>
@@ -623,11 +475,10 @@
 
     <!-- بنر و صفحه اصلی (Hero) با بک‌گراند واکنش‌گرا -->
     <div class="hero-wrapper">
-              <picture class="hero-bg-picture">
-            <source media="(max-width: 768px)" srcset="https://i.postimg.cc/mDTQXxQZ/hero-mobile-jpg.jpgا">
+        <picture class="hero-bg-picture">
+            <source media="(max-width: 768px)" srcset="https://i.postimg.cc/mDTQXxQZ/hero-mobile-jpg.jpg">
             <img src="https://i.postimg.cc/kGnfb6jD/hero-desktop-jpg.jpg" alt="ایران پوستر" />
         </picture>
-
 
         <section class="hero">
             <div class="badge">✨ خدمات طراحی گرافیک و پوستر</div>
@@ -708,16 +559,13 @@
         </div>
     </section>
 
-    <!-- ============================================== -->
-    <!-- صفحه پاپ‌آپ نمونه کارها (با زدن دکمه باز می‌شود) -->
-    <!-- ============================================== -->
+    <!-- صفحه پاپ‌آپ نمونه کارها -->
     <div id="portfolioModal" class="portfolio-modal">
         <div class="modal-header">
             <div>
                 <h2>✨ گالری نمونه کارهای ایران پوستر</h2>
                 <p style="color: var(--text-muted); font-size: 14px; margin-top: 4px;">نمونه پوسترهای طراحی شده برای رویدادها، تبلیغات و همایش‌ها</p>
             </div>
-            <!-- دکمه بازگشت به صفحه اصلی -->
             <button class="btn-close-modal" onclick="closePortfolio()">
                 <i class="fa-solid fa-arrow-right"></i>
                 بازگشت به صفحه اصلی
